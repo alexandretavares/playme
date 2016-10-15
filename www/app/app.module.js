@@ -3,7 +3,9 @@
 
     angular.module('playme',
         [
-            'ionic'
+            'ionic',
+            'playme.auth',
+            'playme.album'
         ]
     ).run(run);
 

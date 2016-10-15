@@ -1,0 +1,40 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <!-- Left menu -->
+    <ion-side-menu side="left" width="305">
+        <ion-header-bar class="bar bar-header bar-dark expanded">
+            <!--<img src="img/logo.png" class="avatar">-->
+            <div class="menu-avatar-text">
+                Playme
+            </div>
+        </ion-header-bar>
+
+        <ion-content overflow-scroll="false" class="has-footer has-expanded-header-avatar">
+            <div class="list dark">
+                <a menu-close nav-clear class="item item-icon-left" ui-sref-active-eq="active"
+                    ui-sref="{{mv.STATE.ALBUM.FAVORITE}}">
+                    <i class="icon"></i>Top Albums
+                </a>
+                <a nav-clear class="item item-icon-left">
+                    <i class="icon"></i>Brands
+                </a>
+                <a menu-close nav-clear class="item item-icon-left" ui-sref-active-eq="active"
+                    ui-sref="{{mv.STATE.ALBUM.LIST}}">
+                    <i class="icon"></i>Albums
+                </a>
+                <a nav-clear class="item item-icon-left">
+                    <i class="icon"></i>Playlists
+                </a>
+            </div>
+        </ion-content>
+    </ion-side-menu>
+    <!-- end left menu -->
+
+    <ion-side-menu-content drag-content="false">
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button></ion-nav-back-button>
+        </ion-nav-bar>
+
+        <ion-nav-view name="menu-content"></ion-nav-view>
+        <div class="menu-backdrop"></div>
+    </ion-side-menu-content>
+</ion-side-menus>

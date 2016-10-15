@@ -29,20 +29,29 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
+    <!-- common module -->
+    <script src="app/common/common.module.js"></script>
+    <script src="app/common/constants/common.constant.js"></script>
+    <script src="app/common/menu/menu.controller.js"></script>
+
+    <!-- auth module -->
+    <script src="app/auth/auth.module.js"></script>
+    <script src="app/auth/controller/auth.controller.js"></script>
+
+    <!-- album module -->
+    <script src="app/album/album.module.js"></script>
+    <script src="app/album/album.value.js"></script>
+    <script src="app/album/album.service.js"></script>
+    <script src="app/album/list/album-list.controller.js"></script>
+    <script src="app/album/detail/album-detail.controller.js"></script>
+    <script src="app/album/favorite/album-favorite.controller.js"></script>
+
     <!-- app module -->
     <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
   </head>
   <body ng-app="playme">
-    
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
-    
+    <!--<ion-nav-view name="app-content"></ion-nav-view>-->
+    <ion-nav-view></ion-nav-view>
   </body>
 </html>

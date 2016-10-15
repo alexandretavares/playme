@@ -1,0 +1,58 @@
+<ion-view view-title="Details">
+    <ion-content scroll="false">
+        <div class="row responsive-sm">
+            <div class="col" style="background-color: #992266">
+                <!--<img ng-src="{{::mv.album.image}}">-->
+                <img src="img/ionic.png" />
+            </div>
+            <div class="col" style="background-color: #00FFFF">
+                <div class="row">
+                    <div class="col">
+                        <div class="item range range-positive">
+                            <span>0:00</span>
+                            <input type="range" name="duration" min="0" max="100" value="65" />
+                            <span>0:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2>Plays Metalica</h2>
+                        <p>In Extremo</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="button-bar">
+                            <a class="button button-small button-icon icon ion-ios-star"></a>
+                            <a class="button button-small button-icon icon ion-ios-star"></a>
+                            <a class="button button-small button-icon icon ion-ios-star-outline"></a>
+                            <a class="button button-small button-icon icon ion-ios-star-outline"></a>
+                            <a class="button button-small button-icon icon ion-ios-star-outline"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="button-bar">
+                            <a class="button button-icon icon ion-ios-rewind"></a>
+                            <a class="button button-icon icon ion-ios-play"></a>
+                            <!--<a class="button button-icon icon ion-ios-pause"></a>-->
+                            <a class="button button-icon icon ion-ios-fastforward"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="item range">
+                            <i class="icon ion-volume-low"></i>
+                            <input type="range" name="volume" />
+                            <i class="icon ion-volume-high"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

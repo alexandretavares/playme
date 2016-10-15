@@ -1,1 +1,55 @@
 /* Empty. Add your own CSS if you like */
+.item-thumbnail-left .item-title {
+    float: left;
+}
+
+.item-thumbnail-left .item-note-right {
+    float: right;
+    color: #aaa;
+}
+
+.range input {
+    background-size: 99% 5px;
+}
+
+.range input::-webkit-slider-thumb {
+    width: 2px;
+    height: 14px;
+    border-radius: 0;
+    background-color: #ff0000;
+}
+
+.range input::-webkit-slider-thumb:before {
+    top: 4px;
+    height: 5px;
+}
+
+/*.container {
+  margin: auto;
+  max-width: 1200px;
+}*/
+
+.responsive-image {
+    max-width: 100%;
+}
+
+.cell img {
+    display: block;
+}
+
+@media screen and (min-width: 320px) {
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .cell {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .cell {
+        width: calc(100% / 3);
+    }
+}

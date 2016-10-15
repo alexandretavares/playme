@@ -1,0 +1,17 @@
+<ion-view view-title="Album list">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+    </ion-nav-buttons>
+
+    <ion-content overflow-scroll="false">
+
+        <div class="list">
+            <a href="" class="item item-thumbnail-left" ng-repeat="album in mv.albums" ng-click="mv.goDetail(album)">
+                <img ng-src="{{::album.image}}">
+                <h2 class="item-title">{{::album.name}}</h2>
+                <span class="item-note-right">{{::album.duration}}</span>
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

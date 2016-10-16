@@ -3,7 +3,12 @@
 
     angular.module("playme.common").constant("STATE", {
         BASE: "app",
-        AUTH: "auth",
+        SPLASH: "splash",
+        AUTH: {
+            BASE: "auth",
+            LOGIN: "auth.login",
+            SIGNUP: "auth.signup"
+        },
         ALBUM: {
             LIST: "app.album-list",
             DETAIL: "app.album-detail",

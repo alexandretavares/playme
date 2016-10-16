@@ -11,6 +11,14 @@
             $state.go(STATE.ALBUM.DETAIL, { album: album });
         };
 
+        mv.toogleSearch = function() {
+            mv.searchEnabled = !mv.searchEnabled;
+        };
+
+        mv.doSearch = function() {
+            mv.searchText = mv.searchFor;
+        };
+
         mv.refreshList = function() {
             albumService.list()
                 .then(function(albums) {
@@ -28,6 +36,9 @@
 
         (function() {
             mv.albums = [];
+            mv.searchText = "";
+            mv.searchFor = "";
+            mv.searchEnabled = false;
         })();
     }
 

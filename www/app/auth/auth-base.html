@@ -1,0 +1,31 @@
+<ion-view>
+    <div class="panel-background">
+        <div class="row row-logo">
+            <div class="col text-center">
+                <img src="img/ionic.png" />
+                <div>
+                    <h2>Playme</h2>
+                    <p>Música em todo lugar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<ion-content scroll="false">
+        <div class="form-panel row">
+            <div class="col form col-bottom">
+                <div ui-view="auth-form"></div>
+                <div class="text-center" ng-hide="mv.visibleKeyboard" ng-switch="mv.signupFormVisible">
+                    <button class="button button-full button-clear button-stable"
+                        ng-click="mv.goSignupForm()" ng-switch-default>
+                        Sign up
+                    </button>
+                    <button class="button button-full button-clear button-stable"
+                        ng-click="mv.goLoginForm()" ng-switch-when="true">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+		</div>
+	</ion-content>
+</ion-view>

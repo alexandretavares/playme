@@ -1,4 +1,12 @@
 /* Empty. Add your own CSS if you like */
+.bar-header-extend {
+    height: 100px;
+}
+
+.has-expanded-header {
+    top: 100px !important;
+}
+
 .item-thumbnail-left .item-title {
     float: left;
 }
@@ -24,11 +32,6 @@
     height: 5px;
 }
 
-/*.container {
-  margin: auto;
-  max-width: 1200px;
-}*/
-
 .responsive-image {
     max-width: 100%;
 }
@@ -52,4 +55,32 @@
     .cell {
         width: calc(100% / 3);
     }
+}
+
+.form-panel {
+    height: 100%;
+}
+
+.form-panel .row {
+    height: 50%;
+}
+
+.panel-background {
+    height: 100%;
+}
+
+.panel-background .row-logo {
+    padding-top: 5em;
+}
+
+.splash-container {
+    height: 100%;
+}
+
+.splash-container .row {
+    height: 50%;
+}
+
+.splash-container .row-logo {
+    padding-top: 5em;
 }

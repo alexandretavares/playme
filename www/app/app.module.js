@@ -4,6 +4,7 @@
     angular.module('playme',
         [
             'ionic',
+            'playme.common',
             'playme.auth',
             'playme.album'
         ]

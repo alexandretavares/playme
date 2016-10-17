@@ -2,19 +2,26 @@
     'use strict';
 
     angular.module("playme.album").controller("AlbumDetailController", AlbumDetailController);
-    AlbumDetailController.$inject = ['$scope', '$state', 'albumService', 'STATE'];
+    AlbumDetailController.$inject = ['$scope', '$state', '$stateParams', 'albumService', 'STATE'];
 
-    function AlbumDetailController($scope, $state, albumService, STATE) {
+    function AlbumDetailController($scope, $state, $stateParams, albumService, STATE) {
         var mv = this;
 
-        $scope.$on("$ionicView.loaded", function (event, data) {
-            if (data.stateParams) {
-                mv.album = data.stateParams.album;
+        $scope.$on("$ionicView.enter", function (event, data) {           
+            if ($stateParams.album) {
+                mv.album = $stateParams.album;
+                mv.ratingsObject.rating = mv.album.rating;
             }
         });
 
         (function() {
             mv.album = {};
+
+            mv.ratingsObject = {
+                rating:  0,
+                callback: function(rating, index) {
+                }
+            };
         })();
     }
 

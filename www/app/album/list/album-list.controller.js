@@ -34,6 +34,10 @@
             mv.refreshList();
         });
 
+        $scope.$on("$ionicView.afterLeave", function(event, data) {
+            mv.searchEnabled = false;
+        });
+
         (function() {
             mv.albums = [];
             mv.searchText = "";

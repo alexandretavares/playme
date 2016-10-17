@@ -9,22 +9,29 @@
             .state(STATE.AUTH.BASE, {
                 url: "/auth",
                 abstract: true,
-                templateUrl: "app/auth/auth-base.html",
+                // templateUrl: "app/auth/auth-base.html",
+                templateUrl: "app/auth/auth.html",
                 controller: "AuthController",
                 controllerAs: "mv"
             })
             .state(STATE.AUTH.LOGIN, {
                 url: "/login",
                 views: {
-                    'auth-form': {
+                    'login-form': {
                         templateUrl: "app/auth/login-form.html"
+                    },
+                    'signup-form': {
+                        templateUrl: "app/auth/signup-form.html"
                     }
                 }
             })
             .state(STATE.AUTH.SIGNUP, {
                 url: "/signup",
                 views: {
-                    'auth-form': {
+                    'login-form': {
+                        templateUrl: "app/auth/login-form.html"
+                    },
+                    'signup-form': {
                         templateUrl: "app/auth/signup-form.html"
                     }
                 }

@@ -16,14 +16,7 @@
         };
 
         this.favorites = function() {
-            var albums = [];
-            
-            for (var i = 0; i < 5; i++) {
-                albums.push({ name: "Name " + i, band: "Band " + i, src: "img/ionic.png" });
-            }
-
-            // return $q.resolve($filter('limitTo')(albumList, 3));
-            return $q.resolve(albums);
+            return $q.resolve($filter('limitTo')(albumList, 7));
         };
 
     }

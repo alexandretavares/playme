@@ -2,19 +2,27 @@
     'use strict';
 
     angular.module("playme.auth").controller("AuthController", AuthController);
-    AuthController.$inject = ['$scope', '$window', '$state', 'STATE'];
+    AuthController.$inject = ['$scope', '$window', '$state', '$timeout', 'STATE'];
 
-    function AuthController($scope, $window, $state, STATE) {
+    function AuthController($scope, $window, $state, $timeout, STATE) {
         var mv = this;
 
-        mv.goSignupForm = function() {
+        mv.showSignupForm = function() {
+            mv.loginMode = false;
             mv.signupFormVisible = true;
-            $state.go(STATE.AUTH.SIGNUP);
+
+            $timeout(function() {
+                mv.signupMode = true;
+            }, 1100);
         };
 
-        mv.goLoginForm = function() {
+        mv.showLoginForm = function() {
+            mv.signupMode = false;
             mv.signupFormVisible = false;
-            $state.go(STATE.AUTH.LOGIN);
+
+            $timeout(function() {
+                mv.loginMode = true;
+            }, 1100);
         };
 
         mv.doLogin = function() {
@@ -36,6 +44,8 @@
         });
 
         (function() {
+            mv.signupMode = false;
+            mv.loginMode = true;
             mv.visibleKeyboard = false;
             mv.signupFormVisible = false;
         })();

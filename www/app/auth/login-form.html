@@ -1,18 +1,18 @@
-<form ng-submit="mv.doLogin()">
-    <div class="list padding">
+<form ng-submit="mv.doLogin()" class="login-form">
+    <div class="list">
         <label class="item item-input">
-            <i class="icon ion-person placeholder-icon"></i>
+            <i class="icon ion-person placeholder-icon royal"></i>
             <input type="text" name="username" placeholder="Username" />
         </label>
         <label class="item item-input">
-            <i class="icon ion-key placeholder-icon"></i>
+            <i class="icon ion-key placeholder-icon royal"></i>
             <input type="password" name="password" placeholder="Password" />
         </label>
         
-        <div>
+        <div class="button-login">
             <button type="submit" class="button button-full button-dark">Login</button>
         </div>
         
-        <ion-checkbox class="checkbox-dark">Remember password</ion-checkbox>
+        <ion-checkbox class="checkbox-square checkbox-dark">Remember password</ion-checkbox>
     </div>
 </form>

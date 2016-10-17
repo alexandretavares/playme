@@ -4,6 +4,8 @@
     angular.module('playme',
         [
             'ionic',
+            'ngAnimate',
+            'ionic-ratings',
             'playme.common',
             'playme.auth',
             'playme.album'

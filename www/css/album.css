@@ -1,0 +1,46 @@
+/******* Album list *********/
+.album-list .list .item:first-child {
+    margin-top: 0;
+}
+
+.album-list .list::first-child {
+    border-top: 1px solid;
+}
+
+.album-list .item-thumbnail-left h2 {
+    float: left;
+}
+
+.album-list .item-thumbnail-left h2, 
+.album-list .item-thumbnail-left span {
+    padding-top: 30px;
+}
+
+.search-component {
+    border-bottom: none;
+    top: 46px;
+    z-index: -1;
+}
+
+.search-component .item-input-wrapper {
+    border-radius: 0;
+}
+
+.search-component .item-input-wrapper input {
+    height: 45px;
+    width: 100%;
+}
+
+.animated-list {
+    top: 0;
+    -webkit-transition: 0.6s linear;
+    -moz-transition: 0.6s linear;
+    -o-transition: 0.6s linear;
+    transition: 0.6s linear;
+}
+
+.animated-list.activated {
+    top: 80px;
+}
+
+/************************************************/

@@ -3,16 +3,16 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
     </ion-nav-buttons>
 
-    <ion-content overflow-scroll="false">
+    <ion-content overflow-scroll="false" class="stable-bg">
         <div class="gallery">
             <div class="cell" ng-repeat="album in mv.favorites" ng-click="mv.goDetail(album)">
                 <div class="card">
                     <div class="item item-image">
-                        <img ng-src="{{album.src}}" />
+                        <img ng-src="{{::album.image}}" />
                     </div>
                     <div class="item item-divider">
                         <h2>{{::album.name}}</h2>
-                        <span>{{::album.band}}</span>
+                        <p>{{::album.band}}</p>
                     </div>
                 </div>
             </div>

@@ -322,3 +322,23 @@ footer {
     color:#444;
   }
 }
+
+.demo-preview iframe {
+    width: 352px;
+    height: 553px;
+    margin-top: 89px;
+    margin-left: -2px;
+    border: none;
+}
+
+.demo-preview {
+    text-align: center;
+    z-index: 1;
+    width: 390px;
+    height: 770px;
+    background-position: center center;
+    background-size: 385px;
+    background-image: url("../img/nexus5.png");
+    background-repeat: no-repeat;
+    margin-bottom: 20px
+}

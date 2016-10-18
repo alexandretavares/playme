@@ -1,0 +1,54 @@
+<ion-view class="album-detail">
+    <ion-content scroll="false">
+        
+        <div class="row responsive-sm player">
+            <div class="col text-center player-image">
+                <img ng-src="{{::mv.album.image}}" />
+            </div>
+            <div class="col player-controls">
+                <div class="row">
+                    <div class="col player-time">
+                        <div class="item range range-positive">
+                            <span>0:00</span>
+                            <input type="range" name="duration" min="0" max="100" value="65" />
+                            <span>{{::mv.album.duration}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center player-text">
+                        <h2>{{::mv.album.band}}</h2>
+                        <p>{{::mv.album.name}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col player-rating">
+                        <div class="button-bar">
+                            <ionic-ratings ratingsobj='mv.ratingsObject' index='0'></ionic-ratings>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col player-buttons">
+                        <div class="button-bar">
+                            <a class="button button-icon icon ion-ios-rewind"></a>
+                            <a class="button button-icon icon ion-ios-play"></a>
+                            <!--<a class="button button-icon icon ion-ios-pause"></a>-->
+                            <a class="button button-icon icon ion-ios-fastforward"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col player-volume">
+                        <div class="item range">
+                            <i class="icon ion-volume-low"></i>
+                            <input type="range" name="volume" />
+                            <i class="icon ion-volume-high"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

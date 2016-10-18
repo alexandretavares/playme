@@ -1,0 +1,46 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <!-- Left menu -->
+    <ion-side-menu side="left" class="has-background-gradient">
+        <ion-header-bar class="bar bar-header bar-header-extend">
+            <div class="menu-logo">
+                <img src="img/logo.png" />
+                <div>
+                    <h2>Playme</h2>
+                </div>
+            </div>
+        </ion-header-bar>
+
+        <ion-content scroll="false" class="has-expanded-header">
+            <div class="list">
+                <a menu-close nav-clear class="item item-icon-left"
+                    ui-sref="{{mv.STATE.ALBUM.FAVORITE}}">
+                    <i class="icon"></i>Top Albums
+                </a>
+                <a nav-clear class="item item-icon-left">
+                    <i class="icon"></i>Brands
+                </a>
+                <a menu-close nav-clear class="item item-icon-left"
+                    ui-sref="{{mv.STATE.ALBUM.LIST}}">
+                    <i class="icon"></i>Albums
+                </a>
+                <a nav-clear class="item item-icon-left">
+                    <i class="icon"></i>Playlists
+                </a>
+                <a menu-toggle class="item item-icon-left"
+                    ng-click="mv.logout()">
+                    <i class="icon"></i>Logout
+                </a>
+            </div>
+        </ion-content>
+    </ion-side-menu>
+    <!-- end left menu -->
+
+    <ion-side-menu-content drag-content="false">
+        <ion-nav-bar class="bar-light">
+            <ion-nav-back-button></ion-nav-back-button>
+        </ion-nav-bar>
+
+        <ion-nav-view name="menu-content"></ion-nav-view>
+        <div class="menu-backdrop"></div>
+    </ion-side-menu-content>
+</ion-side-menus>

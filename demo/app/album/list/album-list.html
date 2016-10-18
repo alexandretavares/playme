@@ -1,0 +1,28 @@
+<ion-view view-title="Albums" class="album-list">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+    </ion-nav-buttons>
+     <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-search" ng-click="mv.toogleSearch()"></button>
+    </ion-nav-buttons>
+
+    <div class="item item-input-inset search-component ng-hide" ng-show="mv.searchEnabled">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="Search for..." 
+                ng-model="mv.searchFor" ng-focus="mv.searchFor = ''" />
+        </label>
+        <button class="button button-royal" ng-click="mv.doSearch()">Search</button>
+    </div>
+
+    <ion-content overflow-scroll="false" class="animated-list" ng-class="{'activated': mv.searchEnabled}">
+        <div class="list">
+            <a href="" class="item item-thumbnail-left" ng-click="mv.goDetail(album)" 
+                ng-repeat="album in mv.albums | filter: {name: mv.searchText}">
+
+                <img ng-src="{{::album.image}}">
+                <h2 class="item-title">{{::album.name}}</h2>
+                <span class="item-note">{{::album.duration}}</span>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

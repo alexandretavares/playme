@@ -7,6 +7,10 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
+var uglify = require("gulp-uglify");
+var usemin = require("gulp-usemin");
+var del = require('del');
+
 var paths = {
   sass: ['./scss/**/*.scss']
 };
@@ -49,3 +53,93 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task("minification", function() {
+    return gulp.src("./www/*.html")
+        .pipe(usemin({
+            'js': [uglify]
+        }))
+        .pipe(gulp.dest("./www/dist"));
+});
+
+/* **********************************************************************************
+ * This task is called from a hook to delete unnecessary files for building
+ * **********************************************************************************/
+gulp.task('delete-files', function() {
+    del([
+        'platforms/android/assets/www/dist/**',
+        'platforms/android/assets/www/lib/**',
+        '!platforms/android/assets/www/lib',
+        '!platforms/android/assets/www/lib/ionic',
+        '!platforms/android/assets/www/lib/ionic/fonts',
+        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.eot',
+        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.svg',
+        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.ttf',
+        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.woff',
+        'platforms/android/assets/www/app/**/*.js',
+        'platforms/android/assets/www/css/ionic.app.css',
+        'platforms/android/assets/www/css/ionic.app.min.css',
+        'platforms/ios/www/dist/**',
+        'platforms/ios/www/lib/**',
+        '!platforms/ios/www/lib',
+        '!platforms/ios/www/lib/ionic',
+        '!platforms/ios/www/lib/ionic/fonts',
+        '!platforms/ios/www/lib/ionic/fonts/ionicons.eot',
+        '!platforms/ios/www/lib/ionic/fonts/ionicons.svg',
+        '!platforms/ios/www/lib/ionic/fonts/ionicons.ttf',
+        '!platforms/ios/www/lib/ionic/fonts/ionicons.woff',
+        'platforms/ios/www/app/**/*.js',
+        'platforms/ios/www/css/ionic.app.css',
+        'platforms/ios/www/css/ionic.app.min.css',
+        './www/dist/**'
+    ])
+    .catch(function(err) {
+        console.log('Error while deleting files');
+        console.log(err);
+    });
+});
+
+/* **********************************************************************************
+ * This task is called from a hook to prepare files for building
+ * **********************************************************************************/
+gulp.task('build-prepare', ['minification']);
+
+/* **********************************************************************************
+ * Demo
+ * **********************************************************************************/
+gulp.task('demo-prepare', function(done) {
+    del("demo/**").then(function() {
+        gulp.src(["./www/**", "!./www/css{,/**}", "!./www/index.html"])
+            .pipe(gulp.dest("demo"))
+            .on("end", done);
+    });
+});
+
+gulp.task("demo-minify", ['demo-prepare'], function() {
+    return gulp.src("./www/*.html")
+        .pipe(usemin({
+            'js': [uglify]
+        }))
+        .pipe(gulp.dest("./demo"));
+});
+
+gulp.task('demo', ['demo-minify'], function() {
+    del([
+        './demo/app/**/*.js',
+        './demo/lib/**',
+        '!./demo/lib',
+        '!./demo/lib/ionic',
+        '!./demo/lib/ionic/fonts',
+        '!./demo/lib/ionic/fonts/ionicons.eot',
+        '!./demo/lib/ionic/fonts/ionicons.svg',
+        '!./demo/lib/ionic/fonts/ionicons.ttf',
+        '!./demo/lib/ionic/fonts/ionicons.woff',
+        '!./demo/lib/robotodraft',
+        '!./demo/lib/robotodraft/fonts/**'
+    ])
+    .catch(function(err) {
+        console.log('Error while deleting files');
+        console.log(err);
+    });
+});
+

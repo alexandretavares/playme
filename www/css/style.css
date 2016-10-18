@@ -1,19 +1,27 @@
 /****************** Menu ************************/
 .bar-header-extend {
-    height: 120px;
+    height: 130px;
     background: none;
 }
 
 .has-expanded-header {
-    top: 120px !important;
+    top: 130px !important;
 }
 
 .menu img {
-    position: absolute;
-    top: 16px;
-    left: 16px;
     height: 65px;
     width: 65px;
+}
+
+.menu .menu-logo {
+    text-align: center; 
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 22px;
+}
+
+.menu h2 {
+    font-size: 22px;
 }
 
 .menu .item-icon-left {
@@ -52,6 +60,15 @@
 
 .panel-logo-disabled {
     opacity: 0.1;
+}
+
+.panel-logo img {
+    width: 90px;
+    height: 90px;
+}
+
+.panel-logo h2 {
+    margin-bottom: 2px;
 }
 
 .cell img {
@@ -221,10 +238,10 @@
 .has-background-gradient {
     background-color: #6b46e5;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#BF5FFF), to(#6b46e5));
-    /*background: -webkit-linear-gradient(top, #6b46e5, #BF5FFF);*/
-    background: -moz-linear-gradient(top, #6b46e5, #BF5FFF);
-    background: -ms-linear-gradient(top, #6b46e5, #BF5FFF);
-    background: -o-linear-gradient(top, #6b46e5, #BF5FFF);
+    background: -webkit-linear-gradient(top, #BF5FFF, #6b46e5);
+    background: -moz-linear-gradient(top, #BF5FFF, #6b46e5);
+    background: -ms-linear-gradient(top, #BF5FFF, #6b46e5);
+    background: -o-linear-gradient(top, #BF5FFF, #6b46e5);
 }
 
 .has-background-gradient h2, .has-background-gradient p {

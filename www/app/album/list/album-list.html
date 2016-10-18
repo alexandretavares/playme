@@ -11,11 +11,11 @@
             <input type="text" placeholder="Search for..." 
                 ng-model="mv.searchFor" ng-focus="mv.searchFor = ''" />
         </label>
-        <button class="button" ng-click="mv.doSearch()">Search</button>
+        <button class="button button-royal" ng-click="mv.doSearch()">Search</button>
     </div>
 
-    <ion-content overflow-scroll="false">
-        <div class="list animated-list" ng-class="{'activated': mv.searchEnabled}">
+    <ion-content overflow-scroll="false" class="animated-list" ng-class="{'activated': mv.searchEnabled}">
+        <div class="list">
             <a href="" class="item item-thumbnail-left" ng-click="mv.goDetail(album)" 
                 ng-repeat="album in mv.albums | filter: {name: mv.searchText}">
 

@@ -32,7 +32,7 @@
 }
 
 .animated-list {
-    top: 0;
+    top: 44px;
     -webkit-transition: 0.6s linear;
     -moz-transition: 0.6s linear;
     -o-transition: 0.6s linear;
@@ -40,7 +40,7 @@
 }
 
 .animated-list.activated {
-    top: 80px;
+    top: 120px;
 }
 
 /************************************************/

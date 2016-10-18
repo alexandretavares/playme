@@ -10,7 +10,7 @@
         $scope.$on("$ionicView.loaded", function(event, data) {
             $timeout(function () {
                 $state.go(STATE.AUTH.LOGIN);
-            }, 3000);
+            }, 4000);
         });
     }
 

@@ -1,6 +1,7 @@
 /****************** Menu ************************/
 .bar-header-extend {
     height: 120px;
+    background: none;
 }
 
 .has-expanded-header {
@@ -16,7 +17,7 @@
 }
 
 .menu .item-icon-left {
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .menu .list {
@@ -30,27 +31,27 @@
     border-top: 0;
     border-left: none;
     border-right: none;
+    background: none;
+    font-size: 18px;
+    color: #fff;
 }
 /************************************************/
 
-.panel-background {
+
+.panel-logo .col-logo {
+    padding-top: 40px;
+}
+
+.panel-logo, .panel-logo .row {
     height: 100%;
 }
 
-.panel-background .row-logo {
-    padding-top: 5em;
+.panel-logo .col-spinner {
+    padding-top: 80px;
 }
 
-.splash-container {
-    height: 100%;
-}
-
-.splash-container .row {
-    height: 50%;
-}
-
-.splash-container .row-logo {
-    padding-top: 5em;
+.panel-logo-disabled {
+    opacity: 0.1;
 }
 
 .cell img {
@@ -144,7 +145,7 @@
     width: 2px;
     height: 14px;
     border-radius: 0;
-    background-color: #ff0000;
+    background-color: #886aea;
 }
 
 .album-detail .player .player-time input::-webkit-slider-thumb:before {
@@ -172,7 +173,7 @@
 }
 
 .player-rating .ionic_rating_icon_on {
-    color: red !important;
+    color: #886aea !important;
 }
 
 .player-rating .ionic_rating_icon_off {
@@ -214,5 +215,18 @@
 .player-volume input::-webkit-slider-thumb {
     width: 16px;
     height: 16px;
-    background-color: #ff0000;
+    background-color: #886aea;
+}
+
+.has-background-gradient {
+    background-color: #6b46e5;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#BF5FFF), to(#6b46e5));
+    /*background: -webkit-linear-gradient(top, #6b46e5, #BF5FFF);*/
+    background: -moz-linear-gradient(top, #6b46e5, #BF5FFF);
+    background: -ms-linear-gradient(top, #6b46e5, #BF5FFF);
+    background: -o-linear-gradient(top, #6b46e5, #BF5FFF);
+}
+
+.has-background-gradient h2, .has-background-gradient p {
+    color: #fff;
 }

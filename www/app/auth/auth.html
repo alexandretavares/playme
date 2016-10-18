@@ -1,18 +1,20 @@
-<ion-view class="auth">
-    <div class="panel-background">
-        <div class="row row-logo">
-            <div class="col text-center">
+<ion-view class="auth has-background-gradient">
+    <div class="panel-logo" ng-class="{'panel-logo-disabled': mv.visibleKeyboard}">
+        <div class="row responsive-sm">
+            <div class="col col-center col-logo text-center">
                 <img src="img/ionic.png" />
                 <div>
                     <h2>Playme</h2>
-                    <p>Música em todo lugar</p>
+                    <p>Music follow you everywhere you are</p>
                 </div>
             </div>
         </div>
     </div>
 
 	<ion-content scroll="false">
-        <div class="auth-container row">
+        <div class="auth-container row" 
+            ng-class="{'keyboard-activated': mv.visibleKeyboard}">
+
             <div class="col col-bottom">
                 <div class="form-container">
                     <div class="flip-container" ng-class="{'flipped': mv.signupFormVisible}">
@@ -29,7 +31,7 @@
                 <a href="" class="animated-fadeOut" 
                     ng-click="mv.showSignupForm()" ng-show="mv.loginMode">Sign up</a>
                 <a href="" class="ng-hide animated-fadeOut"
-                ng-click="mv.showLoginForm()" ng-show="mv.signupMode">Cancel</a>    
+                    ng-click="mv.showLoginForm()" ng-show="mv.signupMode">Cancel</a>    
         </div>
     </div>
 </ion-view>

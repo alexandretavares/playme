@@ -249,6 +249,11 @@
     background-color: #886aea;
 }
 
+.player-volume input::-webkit-slider-thumb:before {
+    top: 7px;
+    height: 2px;
+}
+
 .has-background-gradient {
     background-color: #6b46e5;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#BF5FFF), to(#6b46e5));

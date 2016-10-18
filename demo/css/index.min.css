@@ -10074,6 +10074,11 @@ a.button {
     background-color: #886aea;
 }
 
+.player-volume input::-webkit-slider-thumb:before {
+    top: 7px;
+    height: 2px;
+}
+
 .has-background-gradient {
     background-color: #6b46e5;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#BF5FFF), to(#6b46e5));
@@ -10156,6 +10161,10 @@ a.button {
     width: 100%;
     height: 100%;
     position: relative;
+    -webkit-perspective: 3000px;
+    -moz-perspective: 3000px;
+    -ms-perspective: 3000px;
+    -o-perspective: 3000px;
     perspective: 3000px;
 }
 
@@ -10173,7 +10182,11 @@ a.button {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    backface-visibility:hidden;
     padding-right: 20px;
     padding-left: 20px;
 }

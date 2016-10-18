@@ -6,8 +6,7 @@
         SPLASH: "splash",
         AUTH: {
             BASE: "auth",
-            LOGIN: "auth.login",
-            SIGNUP: "auth.signup"
+            LOGIN: "auth.login"
         },
         ALBUM: {
             LIST: "app.album-list",

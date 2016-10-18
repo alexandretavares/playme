@@ -9,8 +9,6 @@
     function config($urlRouterProvider, $ionicConfigProvider) {
         $ionicConfigProvider.backButton.text('').previousTitleText(false);
         $urlRouterProvider.otherwise("/splash");
-        // $urlRouterProvider.otherwise("/auth/login");
-        // $urlRouterProvider.otherwise("/app/album-favorite");
     }
 
 })();

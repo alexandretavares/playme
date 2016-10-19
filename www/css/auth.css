@@ -113,10 +113,10 @@
 
 .auth .bar-footer .title.ng-hide-remove {
     opacity: 0;
-    -webkit-transition: 2s linear 1s;
-    -moz-transition: 2s linear 1s;
-    -ms-transition: 2s linear 1s;
-    transition: 2s linear 1s;
+    -webkit-transition: 1s linear 0.7s;
+    -moz-transition: 1s linear 0.7s;
+    -ms-transition: 1s linear 0.7s;
+    transition: 1s linear 0.7s;
 }
 
 .auth .bar-footer .title.ng-hide-remove-active {
@@ -124,7 +124,10 @@
 }
 
 .auth .bar-footer .title.ng-hide-add {
-    transition: 1s linear all;
+    -webkit-transition: 0.6s linear all;
+    -moz-transition: 0.6s linear all;
+    -ms-transition: 0.6s linear all;
+    transition: 0.6s linear all;
     opacity: 1;
 }
 

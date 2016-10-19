@@ -61,11 +61,15 @@
 
 
 .panel-logo .col-logo {
-    padding-top: 40px;
+    padding-top: 80px;
 }
 
-.panel-logo, .panel-logo .row {
+.panel-logo {
     height: 100%;
+}
+
+.panel-logo .row {
+    height: 50%;
 }
 
 .panel-logo .col-spinner {
@@ -83,6 +87,11 @@
 
 .panel-logo h2 {
     margin-bottom: 2px;
+    font-size: 26px;
+}
+
+.panel-logo p {
+    font-size: 11px;
 }
 
 .cell img {

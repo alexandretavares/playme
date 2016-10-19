@@ -17,7 +17,7 @@
 
             <div class="col col-bottom">
                 <div class="form-container">
-                    <div class="flip-container" ng-class="{'flipped': mv.signupFormVisible}">
+                    <div class="flip-container" ng-class="{'flipped': !mv.loginMode}">
                         <div class="form front" ui-view="login-form"></div>
                         <div class="form back" ui-view="signup-form"></div>
                     </div>
@@ -27,11 +27,11 @@
 	</ion-content>
 
     <div class="bar bar-footer" ng-hide="mv.visibleKeyboard">
-        <div class="title">
-                <a href="" class="animated-fadeOut" 
-                    ng-click="mv.showSignupForm()" ng-show="mv.loginMode">Sign up</a>
-                <a href="" class="ng-hide animated-fadeOut"
-                    ng-click="mv.showLoginForm()" ng-show="mv.signupMode">Cancel</a>    
+        <div class="title" ng-show="mv.loginMode">
+            <a href=""  ng-click="mv.showSignupForm()">Sign up</a>
+        </div>
+        <div class="title ng-hide" ng-show="!mv.loginMode">
+                <a href=""  ng-click="mv.showLoginForm()">Cancel</a>
         </div>
     </div>
 </ion-view>

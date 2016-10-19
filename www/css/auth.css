@@ -111,9 +111,23 @@
     transform: rotateY(-180deg);
 }
 
-.animated-fadeOut.ng-hide-add {
-    -webkit-animation: fadeOut 1s;
-    -moz-animation: fadeOut 1s;
-    -ms-animation: fadeOut 1s;
-    animation: fadeOut 1s;
+.auth .bar-footer .title.ng-hide-remove {
+    opacity: 0;
+    -webkit-transition: 2s linear 1s;
+    -moz-transition: 2s linear 1s;
+    -ms-transition: 2s linear 1s;
+    transition: 2s linear 1s;
+}
+
+.auth .bar-footer .title.ng-hide-remove-active {
+    opacity: 1;
+}
+
+.auth .bar-footer .title.ng-hide-add {
+    transition: 1s linear all;
+    opacity: 1;
+}
+
+.auth .bar-footer .title.ng-hide-add-active {
+    opacity: 0;
 }

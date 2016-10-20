@@ -10,6 +10,7 @@ var sh = require('shelljs');
 var uglify = require("gulp-uglify");
 var usemin = require("gulp-usemin");
 var del = require('del');
+var deleteEmpty = require('delete-empty');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -104,21 +105,28 @@ gulp.task('delete-files', function() {
  * **********************************************************************************/
 gulp.task('build-prepare', ['minification']);
 
+
 /* **********************************************************************************
  * Demo
  * **********************************************************************************/
+
 gulp.task('demo-prepare', function(done) {
     del("demo/**").then(function() {
-        gulp.src(["./www/**", "!./www/css{,/**}", "!./www/index.html"])
+        gulp.src(["./www/**", "!./www/css{,/**}", "!./www/index.html", "!./www/lib{,/**}"])
             .pipe(gulp.dest("demo"))
-            .on("end", done);
+            .on("end", function() {
+                gulp.src("./www/lib/ionic/fonts/**")
+                    .pipe(gulp.dest("demo/fonts"))
+                    .on("end", done);
+            });
     });
 });
 
 gulp.task("demo-minify", ['demo-prepare'], function() {
     return gulp.src("./www/*.html")
         .pipe(usemin({
-            'js': [uglify]
+            'js': [uglify],
+            'css': [minifyCss]
         }))
         .pipe(gulp.dest("./demo"));
 });
@@ -126,17 +134,11 @@ gulp.task("demo-minify", ['demo-prepare'], function() {
 gulp.task('demo', ['demo-minify'], function() {
     del([
         './demo/app/**/*.js',
-        './demo/lib/**',
-        '!./demo/lib',
-        '!./demo/lib/ionic',
-        '!./demo/lib/ionic/fonts',
-        '!./demo/lib/ionic/fonts/ionicons.eot',
-        '!./demo/lib/ionic/fonts/ionicons.svg',
-        '!./demo/lib/ionic/fonts/ionicons.ttf',
-        '!./demo/lib/ionic/fonts/ionicons.woff',
-        '!./demo/lib/robotodraft',
-        '!./demo/lib/robotodraft/fonts/**'
+        './demo/lib/**'
     ])
+    .then(function() {
+        deleteEmpty.sync('demo/');
+    })
     .catch(function(err) {
         console.log('Error while deleting files');
         console.log(err);

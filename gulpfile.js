@@ -58,7 +58,8 @@ gulp.task('git-check', function(done) {
 gulp.task("minification", function() {
     return gulp.src("./www/*.html")
         .pipe(usemin({
-            'js': [uglify]
+            'js': [uglify],
+            'css': [minifyCss]
         }))
         .pipe(gulp.dest("./www/dist"));
 });
@@ -70,30 +71,27 @@ gulp.task('delete-files', function() {
     del([
         'platforms/android/assets/www/dist/**',
         'platforms/android/assets/www/lib/**',
-        '!platforms/android/assets/www/lib',
-        '!platforms/android/assets/www/lib/ionic',
-        '!platforms/android/assets/www/lib/ionic/fonts',
-        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.eot',
-        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.svg',
-        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.ttf',
-        '!platforms/android/assets/www/lib/ionic/fonts/ionicons.woff',
         'platforms/android/assets/www/app/**/*.js',
         'platforms/android/assets/www/css/ionic.app.css',
         'platforms/android/assets/www/css/ionic.app.min.css',
         'platforms/ios/www/dist/**',
         'platforms/ios/www/lib/**',
-        '!platforms/ios/www/lib',
-        '!platforms/ios/www/lib/ionic',
-        '!platforms/ios/www/lib/ionic/fonts',
-        '!platforms/ios/www/lib/ionic/fonts/ionicons.eot',
-        '!platforms/ios/www/lib/ionic/fonts/ionicons.svg',
-        '!platforms/ios/www/lib/ionic/fonts/ionicons.ttf',
-        '!platforms/ios/www/lib/ionic/fonts/ionicons.woff',
         'platforms/ios/www/app/**/*.js',
         'platforms/ios/www/css/ionic.app.css',
         'platforms/ios/www/css/ionic.app.min.css',
         './www/dist/**'
     ])
+    .then(function() {
+        deleteEmpty('platforms/android/assets/www/app/', function(err, deleted) {
+            console.log("Empty folders deleted for android");
+            console.log(deleted);
+        });
+
+        deleteEmpty('platforms/ios/www/app/', function(err, deleted) {
+            console.log("Empty folders deleted for ios");
+            console.log(deleted);
+        });
+    })
     .catch(function(err) {
         console.log('Error while deleting files');
         console.log(err);
@@ -103,7 +101,10 @@ gulp.task('delete-files', function() {
 /* **********************************************************************************
  * This task is called from a hook to prepare files for building
  * **********************************************************************************/
-gulp.task('build-prepare', ['minification']);
+gulp.task('build-prepare', ['minification'], function() {
+    return gulp.src("./www/lib/ionic/fonts/**")
+        .pipe(gulp.dest("./www/dist/fonts"));
+});
 
 
 /* **********************************************************************************

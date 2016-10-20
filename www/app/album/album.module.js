@@ -17,7 +17,7 @@
                 }
             })
             .state(STATE.ALBUM.DETAIL, {
-                url: "/album/detail",
+                url: "/album-detail",
                 params: {
                     album: null
                 },

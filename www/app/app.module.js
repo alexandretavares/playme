@@ -12,18 +12,24 @@
         ]
     ).run(run);
 
-    run.$inject = ['$ionicPlatform'];
+    run.$inject = ['$rootScope', '$ionicPlatform', '$ionicHistory', '$ionicPopup', 'STATE', 'APP_EVENT'];
 
-    function run($ionicPlatform) {
+    function run($rootScope, $ionicPlatform, $ionicHistory, $ionicPopup, STATE, APP_EVENT) {
+        var exitApp = function() {
+            $ionicPopup.confirm({
+                title: 'System warning',
+                template: 'are you sure you want to exit?',
+                okType: 'button-royal'
+            }).then(function (res) {
+                if (res) {
+                    navigator.app.exitApp();
+                }
+            });
+        };
+
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
-              // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-              // for form inputs)
               cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
-              // Don't remove this line unless you know what you are doing. It stops the viewport
-              // from snapping when text inputs are focused. Ionic handles this internally for
-              // a much nicer keyboard experience.
               cordova.plugins.Keyboard.disableScroll(true);
             }
 
@@ -31,6 +37,29 @@
                 StatusBar.styleDefault();
             }
 
+            $ionicPlatform.registerBackButtonAction(function(event) {
+                var currentState = $ionicHistory.currentStateName();
+
+                if ((currentState == STATE.SPLASH) || (currentState == STATE.AUTH.LOGIN)) {
+                    exitApp();
+                } else {
+                    var backView = $ionicHistory.backView();
+
+                    if (backView) {
+                        var previousState = backView.stateName;
+
+                        if (previousState == STATE.AUTH.LOGIN) {
+                            $rootScope.$emit(APP_EVENT.LOGOUT);
+                        } else {
+                            $ionicHistory.goBack();
+                        }
+                    } else {
+                        $rootScope.$emit(APP_EVENT.LOGOUT);
+                    }
+                }
+            }, 100);
+
         });
     }
+
 })();

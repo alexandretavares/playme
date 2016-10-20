@@ -26,7 +26,6 @@
                 })
                 .catch(function(error) {
                     mv.albums = [];
-                    console.error(error);
                 });
         };
 

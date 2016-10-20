@@ -5,20 +5,15 @@
     AlbumService.$inject = ['$q', '$filter', 'albumList'];
 
     function AlbumService($q, $filter, albumList) {
-        var that = this;
 
         this.list = function() {
-            return $q(function(resolve, reject) {
-                setTimeout(function() {
-                    resolve(angular.copy(albumList));
-                }, 2);    
-            });
+            return $q.resolve(angular.copy(albumList));
         };
 
         this.favorites = function() {
             return $q.resolve($filter('limitTo')(albumList, 7));
         };
-
+        
     }
 
 })();

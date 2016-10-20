@@ -15,4 +15,8 @@
         }
     });
 
+    angular.module("playme.common").constant("APP_EVENT", {
+        LOGOUT: "logout"
+    });
+
 })();

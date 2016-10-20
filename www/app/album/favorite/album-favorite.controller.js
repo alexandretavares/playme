@@ -18,7 +18,6 @@
                 })
                 .catch(function(error) {
                     mv.favorites = [];
-                    console.error(error);
                 });
         });
 

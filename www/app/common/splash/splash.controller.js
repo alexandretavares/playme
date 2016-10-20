@@ -2,14 +2,20 @@
     'use strict';
 
     angular.module("playme.common").controller("SplashController", SplashController);
-    SplashController.$inject = ['$scope', '$timeout', '$state', 'STATE'];
+    SplashController.$inject = ['$scope', '$timeout', '$state', '$ionicHistory', 'STATE'];
 
-    function SplashController($scope, $timeout, $state, STATE) {
-        var mv = this;
-
+    function SplashController($scope, $timeout, $state, $ionicHistory, STATE) {
         $scope.$on("$ionicView.loaded", function(event, data) {
-            $timeout(function () {
-                $state.go(STATE.AUTH.LOGIN);
+            $ionicHistory.nextViewOptions({
+                historyRoot: true,
+                disableBack: true,
+                disableAnimate: true
+            });
+
+            $timeout(function() {
+                $state.go(STATE.AUTH.LOGIN).then(function() {
+                    $ionicHistory.clearHistory();
+                });
             }, 4000);
         });
     }

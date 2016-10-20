@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module("playme.auth").controller("AuthController", AuthController);
-    AuthController.$inject = ['$scope', '$window', '$state', 'STATE'];
+    AuthController.$inject = ['$rootScope', '$scope', '$window', '$state', '$ionicHistory', 'STATE', 'APP_EVENT'];
 
-    function AuthController($scope, $window, $state, STATE) {
+    function AuthController($rootScope, $scope, $window, $state, $ionicHistory, STATE, APP_EVENT) {
         var mv = this;
 
         mv.showSignupForm = function() {
@@ -30,6 +30,18 @@
                 $scope.$apply(function() {
                     mv.visibleKeyboard = false;
                 });
+            });
+        });
+
+        $rootScope.$on(APP_EVENT.LOGOUT, function() {
+            $ionicHistory.nextViewOptions({
+                historyRoot: true,
+                disableBack: true,
+                disableAnimate: true
+            });
+    
+            $state.go(STATE.AUTH.LOGIN).then(function() {
+                $ionicHistory.clearHistory();
             });
         });
 

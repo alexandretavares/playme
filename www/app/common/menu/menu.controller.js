@@ -2,22 +2,13 @@
     'use strict';
 
     angular.module("playme.common").controller("MenuController", MenuController);
-    MenuController.$inject = ['$state', '$ionicHistory', 'STATE'];
+    MenuController.$inject = ['$rootScope', 'STATE', 'APP_EVENT'];
 
-    function MenuController($state, $ionicHistory, STATE) {
+    function MenuController($rootScope, STATE, APP_EVENT) {
         var mv = this;
 
         mv.logout = function() {
-            $ionicHistory.clearHistory();
-
-            $ionicHistory.nextViewOptions({
-                historyRoot: true,
-                disableBack: true
-            });
-
-            $ionicHistory.clearCache().then(function() {
-                $state.go(STATE.AUTH.LOGIN);
-            });
+            $rootScope.$emit(APP_EVENT.LOGOUT);
         };
 
         (function() {

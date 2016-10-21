@@ -6,13 +6,15 @@
         <button class="button button-icon button-clear ion-search" ng-click="mv.toogleSearch()"></button>
     </ion-nav-buttons>
 
-    <div class="item item-input-inset search-component ng-hide" ng-show="mv.searchEnabled">
-        <label class="item-input-wrapper">
-            <input type="text" placeholder="Search for..." 
-                ng-model="mv.searchFor" ng-focus="mv.searchFor = ''" />
-        </label>
-        <button class="button button-royal" ng-click="mv.doSearch()">Search</button>
-    </div>
+    <form ng-submit="mv.doSearch()" class="search-form ng-hide" ng-show="mv.searchEnabled">
+        <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+                <input type="text" placeholder="Search for..." 
+                    ng-model="mv.searchFor" ng-focus="mv.searchFor = ''" />
+            </label>
+            <button type="submit" class="button button-royal" ng-click="mv.doSearch()">Search</button>
+        </div>
+    </form>
 
     <ion-content overflow-scroll="false" class="animated-list" ng-class="{'activated': mv.searchEnabled}">
         <div class="list">

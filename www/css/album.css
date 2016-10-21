@@ -15,17 +15,22 @@
     padding-top: 30px;
 }
 
-.search-component {
-    border-bottom: none;
+.search-form {
+    border: none;
     top: 46px;
     z-index: -1;
+    position: relative;
 }
 
-.search-component .item-input-wrapper {
+.search-form .item {
+    border: none;
+}
+
+.search-form .item-input-wrapper {
     border-radius: 0;
 }
 
-.search-component .item-input-wrapper input {
+.search-form .item-input-wrapper input {
     height: 45px;
     width: 100%;
 }
@@ -42,11 +47,11 @@
     top: 120px;
 }
 
-.search-component.ng-hide-add {
+.search-form.ng-hide-add {
     transition: 0.1s linear 0.6s;
     opacity: 1;
 }
 
-.search-component.ng-hide-add-active {
+.search-form.ng-hide-add-active {
     opacity: 0;
 }

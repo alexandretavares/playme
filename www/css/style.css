@@ -264,12 +264,12 @@
 }
 
 .has-background-gradient {
-    background-color: #6b46e5;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#BF5FFF), to(#6b46e5));
-    background: -webkit-linear-gradient(top, #BF5FFF, #6b46e5);
-    background: -moz-linear-gradient(top, #BF5FFF, #6b46e5);
-    background: -ms-linear-gradient(top, #BF5FFF, #6b46e5);
-    background: -o-linear-gradient(top, #BF5FFF, #6b46e5);
+    background-color: #BF5FFF;
+    background-image: -moz-linear-gradient(top,#BF5FFF,#6b46e5);
+    background-image: -webkit-linear-gradient(top,#BF5FFF,#6b46e5);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#BF5FFF), color-stop(100%,#6b46e5));
+    background-image: -o-linear-gradient(top,#BF5FFF,#6b46e5);
+    background-image: linear-gradient(to bottom,#BF5FFF,#6b46e5);
 }
 
 .has-background-gradient h2, .has-background-gradient p {

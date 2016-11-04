@@ -1,12 +1,12 @@
-<ion-view view-title="Top Albums">
+<ion-view view-title="Top Albums" class="album-favorite">
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
     </ion-nav-buttons>
 
     <ion-content overflow-scroll="false" class="stable-bg">
-        <div class="gallery">
-            <div class="cell" ng-repeat="album in mv.favorites" ng-click="mv.goDetail(album)">
-                <div class="card">
+        <div class="row row-wrap">
+            <div class="col" ng-repeat="album in mv.favorites">
+                <div class="card" ng-click="mv.goDetail(album)">
                     <div class="item item-image">
                         <img ng-src="{{::album.image}}" />
                     </div>
